@@ -81,20 +81,39 @@ class GameScene: SKScene {
         }
     }
     
-    private func goaled() {
-        prepareStartGame()
+    private func isEndGame() -> Bool {
+        if score[0] == 5 || score[1] == 5 {
+            return true
+        }
+        return false
+    }
+    
+    private func goaled(who: SKLabelNode?) {
+        updateScore(who: who)
+        if isEndGame() {
+            ball?.alpha = 0
+            ball?.position = CGPoint(x: 0, y: 0)
+            ball?.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            print("Ended Game")
+            showModal()
+        }
+        else {
+            prepareStartGame()
+        }
+    }
+    
+    private func showModal() {
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
         if let ball = ball {
             enemy?.run(SKAction.moveTo(x: ball.position.x, duration: 0.2))
             if let enemy = enemy, ball.position.y > enemy.frame.maxY {
-                goaled()
-                updateScore(who: scorePlayerLabel)
+                goaled(who: scorePlayerLabel)
             }
             if let player = player, ball.position.y < player.frame.minY {
-                goaled()
-                updateScore(who: scoreEnemyLabel)
+                goaled(who: scoreEnemyLabel)
             }
         }
     }
