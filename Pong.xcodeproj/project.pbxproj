@@ -39,6 +39,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B88B59CF2121924100FCF401 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B88B59D02121924A00FCF401 /* GamePlay */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B88B59D02121924A00FCF401 /* GamePlay */ = {
+			isa = PBXGroup;
+			children = (
+				B8F5431B21204BC700A0B41B /* GameScene.sks */,
+				B8F5431F21204BC700A0B41B /* GameScene.swift */,
+			);
+			path = GamePlay;
+			sourceTree = "<group>";
+		};
 		B8F5430D21204BC700A0B41B = {
 			isa = PBXGroup;
 			children = (
@@ -58,9 +75,8 @@
 		B8F5431821204BC700A0B41B /* Pong */ = {
 			isa = PBXGroup;
 			children = (
+				B88B59CF2121924100FCF401 /* Scenes */,
 				B8F5431921204BC700A0B41B /* AppDelegate.swift */,
-				B8F5431B21204BC700A0B41B /* GameScene.sks */,
-				B8F5431F21204BC700A0B41B /* GameScene.swift */,
 				B8F5432121204BC700A0B41B /* GameViewController.swift */,
 				B8F5432321204BC700A0B41B /* Main.storyboard */,
 				B8F5432621204BC800A0B41B /* Assets.xcassets */,
