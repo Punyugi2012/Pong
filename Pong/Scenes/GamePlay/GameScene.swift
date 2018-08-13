@@ -91,10 +91,10 @@ class GameScene: SKScene {
         ball?.alpha = 1
         let randomed = Int(arc4random_uniform(2))
         if randomed == 0 {
-            ball?.physicsBody?.applyImpulse(CGVector(dx: 8.0, dy: -8.0))
+            ball?.physicsBody?.applyImpulse(CGVector(dx: 9.0, dy: -9.0))
         }
         else {
-            ball?.physicsBody?.applyImpulse(CGVector(dx: -8.0, dy: 8.0))
+            ball?.physicsBody?.applyImpulse(CGVector(dx: -9.0, dy: 9.0))
         }
     }
     
