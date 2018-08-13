@@ -162,6 +162,7 @@ class GameScene: SKScene {
             if atPoint(location).name == "Replay" {
                 if let gameScene = GameScene(fileNamed: "GameScene") {
                     gameScene.scaleMode = .aspectFill
+                    gameScene.modeGame = modeGame
                     view!.presentScene(gameScene)
                 }
             }
@@ -191,6 +192,7 @@ class GameScene: SKScene {
             if atPoint(location).name == "Replay" {
                 if let gameScene = GameScene(fileNamed: "GameScene") {
                     gameScene.scaleMode = .aspectFill
+                    gameScene.modeGame = modeGame
                     view!.presentScene(gameScene)
                 }
             }
