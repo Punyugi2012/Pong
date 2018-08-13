@@ -17,8 +17,8 @@ class GameScene: SKScene {
     var readyTimeLabel: SKLabelNode?
     var scoreEnemyLabel: SKLabelNode?
     var scorePlayerLabel: SKLabelNode?
-    var replay: SKSpriteNode?
-    var home: SKSpriteNode?
+    var replay: SKLabelNode?
+    var home: SKLabelNode?
     var modal: SKSpriteNode?
     var labelInModal: SKLabelNode?
     var score = [0, 0]
@@ -44,8 +44,8 @@ class GameScene: SKScene {
         modal = childNode(withName: "Modal") as? SKSpriteNode
         labelInModal = modal?.childNode(withName: "Label") as? SKLabelNode
         modal?.alpha = 0
-        replay = modal?.childNode(withName: "Replay") as? SKSpriteNode
-        home = modal?.childNode(withName: "Home") as? SKSpriteNode
+        replay = modal?.childNode(withName: "Replay") as? SKLabelNode
+        home = modal?.childNode(withName: "Home") as? SKLabelNode
         physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
         setFont()
         prepareStartGame()
@@ -55,6 +55,8 @@ class GameScene: SKScene {
         scorePlayerLabel?.fontName = "OrangeKid-Regular"
         scoreEnemyLabel?.fontName = "OrangeKid-Regular"
         labelInModal?.fontName = "OrangeKid-Regular"
+        replay?.fontName = "OrangeKid-Regular"
+        home?.fontName = "OrangeKid-Regular"
     }
     private func updateScore(who: SKLabelNode?) {
         if let who = who {
