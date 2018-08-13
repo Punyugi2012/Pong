@@ -24,6 +24,7 @@ class GameScene: SKScene {
     var labelInModal: SKLabelNode?
     var score = [0, 0]
     var countTime = 3
+    var ballSpeed = 10.0
     
     override func didMove(to view: SKView) {
         let border = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -91,10 +92,10 @@ class GameScene: SKScene {
         ball?.alpha = 1
         let randomed = Int(arc4random_uniform(2))
         if randomed == 0 {
-            ball?.physicsBody?.applyImpulse(CGVector(dx: 10.0, dy: -10.0))
+            ball?.physicsBody?.applyImpulse(CGVector(dx: ballSpeed, dy: -ballSpeed))
         }
         else {
-            ball?.physicsBody?.applyImpulse(CGVector(dx: -10.0, dy: 10.0))
+            ball?.physicsBody?.applyImpulse(CGVector(dx: -ballSpeed, dy: ballSpeed))
         }
     }
     
@@ -128,6 +129,7 @@ class GameScene: SKScene {
             labelInModal?.text = "Player2 Won!"
         }
     }
+    
     
     override func update(_ currentTime: TimeInterval) {
         if let ball = ball {
