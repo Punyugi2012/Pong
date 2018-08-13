@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var modeGame: ModeGame!
     var player: SKSpriteNode?
     var enemy: SKSpriteNode?
     var ball: SKSpriteNode?
@@ -25,12 +26,6 @@ class GameScene: SKScene {
     var countTime = 3
     
     override func didMove(to view: SKView) {
-//        for fontFamily in UIFont.familyNames {
-//            print("Font family name = \(fontFamily as String)")
-//            for fontName in UIFont.fontNames(forFamilyName: fontFamily as String) {
-//                print("- Font name = \(fontName)")
-//            }
-//        }
         let border = SKPhysicsBody(edgeLoopFrom: self.frame)
         border.friction = 0
         border.restitution = 1
@@ -136,7 +131,9 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         if let ball = ball {
-            enemy?.run(SKAction.moveTo(x: ball.position.x, duration: 0.2))
+            if modeGame == ModeGame.ONEPLAYER {
+                enemy?.run(SKAction.moveTo(x: ball.position.x, duration: 0.2))
+            }
             if let enemy = enemy, ball.position.y > enemy.frame.maxY {
                 goaled(who: scorePlayerLabel)
             }
@@ -149,7 +146,17 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            player?.run(SKAction.moveTo(x: location.x, duration: 0.2))
+            if modeGame == ModeGame.TWOPLAYER {
+                if location.y < 0 {
+                    player?.run(SKAction.moveTo(x: location.x, duration: 0.2))
+                }
+                else if location.y > 0 {
+                    enemy?.run(SKAction.moveTo(x: location.x, duration: 0.2))
+                }
+            }
+            else {
+                player?.run(SKAction.moveTo(x: location.x, duration: 0.2))
+            }
             if atPoint(location).name == "Replay" {
                 if let gameScene = GameScene(fileNamed: "GameScene") {
                     gameScene.scaleMode = .aspectFill
@@ -157,7 +164,10 @@ class GameScene: SKScene {
                 }
             }
             if atPoint(location).name == "Home" {
-                
+                if let mainMenu = MainMenu(fileNamed: "MainMenu") {
+                    mainMenu.scaleMode = .aspectFill
+                    view!.presentScene(mainMenu)
+                }
             }
         }
     }
@@ -165,7 +175,17 @@ class GameScene: SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
-            player?.run(SKAction.moveTo(x: location.x, duration: 0.2))
+            if modeGame == ModeGame.TWOPLAYER {
+                if location.y < 0 {
+                    player?.run(SKAction.moveTo(x: location.x, duration: 0.2))
+                }
+                else if location.y > 0 {
+                    enemy?.run(SKAction.moveTo(x: location.x, duration: 0.2))
+                }
+            }
+            else {
+                player?.run(SKAction.moveTo(x: location.x, duration: 0.2))
+            }
             if atPoint(location).name == "Replay" {
                 if let gameScene = GameScene(fileNamed: "GameScene") {
                     gameScene.scaleMode = .aspectFill
@@ -173,7 +193,10 @@ class GameScene: SKScene {
                 }
             }
             if atPoint(location).name == "Home" {
-                
+                if let mainMenu = MainMenu(fileNamed: "MainMenu") {
+                    mainMenu.scaleMode = .aspectFill
+                    view!.presentScene(mainMenu)
+                }
             }
         }
     }
