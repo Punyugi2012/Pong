@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B88B59E121219F9A00FCF401 /* orangekid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B88B59E021219F9700FCF401 /* orangekid.ttf */; };
 		B8F5431A21204BC700A0B41B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5431921204BC700A0B41B /* AppDelegate.swift */; };
 		B8F5431C21204BC700A0B41B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B8F5431B21204BC700A0B41B /* GameScene.sks */; };
 		B8F5432021204BC700A0B41B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5431F21204BC700A0B41B /* GameScene.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B88B59E021219F9700FCF401 /* orangekid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = orangekid.ttf; sourceTree = "<group>"; };
 		B8F5431621204BC700A0B41B /* Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F5431921204BC700A0B41B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8F5431B21204BC700A0B41B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				B8F5431821204BC700A0B41B /* Pong */,
 				B8F5431721204BC700A0B41B /* Products */,
+				B88B59E021219F9700FCF401 /* orangekid.ttf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B88B59E121219F9A00FCF401 /* orangekid.ttf in Resources */,
 				B8F5432521204BC700A0B41B /* Main.storyboard in Resources */,
 				B8F5431C21204BC700A0B41B /* GameScene.sks in Resources */,
 				B8F5432721204BC800A0B41B /* Assets.xcassets in Resources */,
